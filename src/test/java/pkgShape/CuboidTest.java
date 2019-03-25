@@ -71,7 +71,6 @@ public class CuboidTest {
 		assertEquals(-1, cuboids.get(1).compareTo(cuboids.get(2)));
 	}
 
-	
 
 	@Test
 	public void volumeComparatorToCuboidTest() {

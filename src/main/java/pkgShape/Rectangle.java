@@ -64,6 +64,5 @@ public class Rectangle extends Shape {
 		
 		System.out.println("Rectange created " + r.getiLength() + " " + r.getiWidth());
 		
-		
 	}
 }
