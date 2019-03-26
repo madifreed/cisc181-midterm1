@@ -3,9 +3,8 @@ package pkgShape;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
+import java.util.ArrayList;
 
 import org.junit.Test;
 
@@ -98,7 +97,11 @@ public class CuboidTest {
 		Cuboid c2 = new Cuboid(2, 4, 5);
 		Cuboid c3 = new Cuboid(2, 4, 1);
 		
-		List<Cuboid> cuboids = Arrays.asList(c1, c2, c2, c3);
+		ArrayList<Cuboid> cuboids = new ArrayList<Cuboid>();
+		cuboids.add(c1);
+		cuboids.add(c2);
+		cuboids.add(c2);
+		cuboids.add(c3);
 	
 		Collections.sort(cuboids, new SortByArea());
 		
@@ -114,7 +117,11 @@ public class CuboidTest {
 		Cuboid c2 = new Cuboid(2, 4, 5);
 		Cuboid c3 = new Cuboid(2, 4, 1);
 		
-		List<Cuboid> cuboids = Arrays.asList(c1, c2, c2, c3);
+		ArrayList<Cuboid> cuboids = new ArrayList<Cuboid>();
+		cuboids.add(c1);
+		cuboids.add(c2);
+		cuboids.add(c2);
+		cuboids.add(c3);
 	
 		Collections.sort(cuboids, new SortByVolume());
 		

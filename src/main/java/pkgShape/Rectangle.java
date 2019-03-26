@@ -1,5 +1,6 @@
 package pkgShape;
 
+
 /*
  * Rectangle - class that extends Shape, implements Comparable interface, 
  * and adds compareTo() method
@@ -110,5 +111,5 @@ public class Rectangle extends Shape implements Comparable<Object> {
 
 		return Double.compare(this.area(), other.area());
 	}
-
+	
 }
