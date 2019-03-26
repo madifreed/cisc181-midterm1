@@ -15,8 +15,13 @@ public class RectangleTest {
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
-	public void invalidRectangleTest() {
+	public void invalidRectangle1Test() {
 		Rectangle r = new Rectangle(-1, 1);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void invalidRectangle2Test() {
+		Rectangle r = new Rectangle(1, 0);
 	}
 
 	@Test
@@ -25,6 +30,11 @@ public class RectangleTest {
 		
 		assertEquals(23, r.getiWidth());
 		assertEquals(28, r.getiLength());
+	}
+	
+	@Test
+	public void setterTests() {
+		Rectangle r = new Rectangle(23, 28);
 		
 		r.setiLength(44);
 		assertEquals(44, r.getiLength());
@@ -37,17 +47,30 @@ public class RectangleTest {
 	public void areaRectangleTest() {
 		Rectangle r = new Rectangle(2, 4);
 		
-		assertEquals(8, r.area(), 0.0001);
+		assertEquals(0, Double.compare(8.0, r.area()));
 	}
 
 	@Test
 	public void perimeterRectangleTest() {
 		Rectangle r = new Rectangle(2, 4);
 		
-		assertEquals(12, r.perimeter(), 0.0001);
+		assertEquals(0, Double.compare(12.0, r.perimeter()));
 	}
 	
+	@Test (expected = IllegalArgumentException.class)
+	public void compareToStringTest() {
+		Rectangle r = new Rectangle(1, 3);
+		
+		r.compareTo("Test");
+	}
 
+	@Test (expected = IllegalArgumentException.class)
+	public void compareToNullTest() {
+		Rectangle r = new Rectangle(1, 3);
+		
+		r.compareTo(null);
+	}
+	
 	@Test
 	public void compareToRectangleTest() {
 		Rectangle r1 = new Rectangle(1, 3);
@@ -56,9 +79,6 @@ public class RectangleTest {
 		assertEquals(0, r1.compareTo(r1));
 		assertEquals(-1, r1.compareTo(r2));
 		assertEquals(1, r2.compareTo(r1));
-		
-		assertEquals(0, r1.compareTo(null));
-		assertEquals(0, r1.compareTo("Test"));
 	}
 
 }

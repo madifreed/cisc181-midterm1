@@ -1,10 +1,27 @@
 package pkgShape;
 
-public class Rectangle extends Shape {
+/*
+ * Rectangle - class that extends Shape, implements Comparable interface, 
+ * and adds compareTo() method
+ */
+public class Rectangle extends Shape implements Comparable<Object> {
 
+	/*
+	 * iWidth - the width of the rectangle
+	 */
 	private int iWidth;
+	
+	
+	/*
+	 * iLength - the length of the rectangle
+	 */
 	private int iLength;
 
+	
+	/*
+	 * Rectangle constructor - sets width and length and throws IllegalArgumentException
+	 * if width and length are not positive
+	 */
 	public Rectangle(int iWidth, int iLength) {
 		if ((iWidth <= 0) || (iLength <= 0)) {
 			throw new IllegalArgumentException("Width and Length must be positive");
@@ -14,6 +31,8 @@ public class Rectangle extends Shape {
 		this.iLength = iLength;
 	}
 
+	
+	
 	public int getiWidth() {
 		return iWidth;
 	}
@@ -40,29 +59,16 @@ public class Rectangle extends Shape {
 		return iWidth*2 + iLength*2;
 	}
 
+	@Override
 	public int compareTo(Object obj) {
-		if (obj == null)
-			return 0;
-
-		if (getClass() != obj.getClass())
-			return 0;
-
-		Rectangle other = (Rectangle) obj;
-
-		if ( this.area() <  other.area()) {
-			return -1;
+		
+		if (!(obj instanceof Shape)) {
+			throw new IllegalArgumentException("Invalid object");
 		}
-		else if (this.area() > other.area()) {
-			return 1;
-		}
+		
+		Shape other = (Shape) obj;
 
-		return 0;
+		return Double.compare(this.area(), other.area());
 	}
 
-	public static void main (String[] args) {
-		Rectangle r = new Rectangle(-1, 1);
-		
-		System.out.println("Rectange created " + r.getiLength() + " " + r.getiWidth());
-		
-	}
 }
