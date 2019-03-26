@@ -14,13 +14,13 @@ public abstract class Shape {
 	
 	
 	/*
-	 * area - abstract method
+	 * area - abstract method for area of a Shape
 	 */
 	public abstract double area();
 	
 	
 	/*
-	 * perimeter - abstract method
+	 * perimeter - abstract method for perimeter of a Shape
 	 */
 	public abstract double perimeter();
 	

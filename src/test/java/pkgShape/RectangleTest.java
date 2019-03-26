@@ -24,6 +24,11 @@ public class RectangleTest {
 		Rectangle r = new Rectangle(1, 0);
 	}
 
+	@Test (expected = IllegalArgumentException.class)
+	public void invalidRectangle3Test() {
+		Rectangle r = new Rectangle(1, -1);
+	}
+	
 	@Test
 	public void getterTests() {
 		Rectangle r = new Rectangle(23, 28);
